@@ -1,0 +1,42 @@
+#ifndef DEFINITIONS_H
+#define DEFINITIONS_H
+
+#if defined(_MSC_VER)
+#ifdef DLLDIR_EX
+#define DLLDIR  __declspec(dllexport)   // export DLL information
+#define EXPIMP_TEMPLATE
+#else
+#define DLLDIR  __declspec(dllimport)   // import DLL information
+#define EXPIMP_TEMPLATE extern
+#endif
+#elif defined(__GNUC__)
+#   define DLL_EXPORT __attribute__((visibility("default")))
+#   define DLL_IMPORT
+#   if __GNUC__ > 4
+#       define DLL_LOCAL __attribute__((visibility("hidden")))
+#   else
+#       define DLL_LOCAL
+#   endif
+#else
+#   error("Don't know how to export shared object libraries")
+#endif
+
+#ifdef _WIN32
+#define VK_USE_PLATFORM_WIN32_KHR
+#define VK_KHR_platform_surface VK_KHR_WIN32_SURFACE_EXTENSION_NAME
+#endif
+
+#define MAKE_VERSION(major, minor, patch) \
+	(((major) << 22) | ((minor) << 12) | (patch))
+
+#define ENGINE_NAME "SVL"
+#define ENGINE_VERSION MAKE_VERSION(0, 0, 1)
+
+#define VALIDATION_LAYERS "VK_LAYER_KHRONOS_validation"//"VK_LAYER_KHRONOS_validation VK_LAYER_LUNARG_standard_validation",
+
+#define NUM_SWAPCHAIN_IMAGE 2
+#define NUM_MAX_LIGHTS 4
+
+#define GLM_FORCE_DEPTH_ZERO_TO_ONE
+
+#endif // !DEFINITIONS_H

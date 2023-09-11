@@ -1,0 +1,6 @@
+[submodule "SVL Demo/Demo/src/Demo/external/imgui-filebrowser"]
+	path = SVL Demo/Demo/src/Demo/external/imgui-filebrowser
+	url = git@github.com:AirGuanZ/imgui-filebrowser.git
+[submodule "SVL Demo/Demo/src/Demo/external/imgui"]
+	path = SVL Demo/Demo/src/Demo/external/imgui
+	url = git@github.com:ocornut/imgui.git

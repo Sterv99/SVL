@@ -1,0 +1,27 @@
+#ifndef SVL_H
+#define SVL_H
+
+#cmakedefine01 COMPILE_LOADER
+
+//core
+#include "graphics/renderer.h"
+#include "graphics/window.h"
+#include "graphics/layer.h"
+//////////////////
+
+//models
+#include "graphics/texture.h"
+#include "graphics/mesh.h"
+//////////////////
+
+#include "graphics/model.h"
+
+#include "graphics/camera.h"
+#include "graphics/light.h"
+
+
+#ifdef COMPILE_LOADER
+#	include "loader/loader.h"
+#endif
+
+#endif
